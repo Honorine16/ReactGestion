@@ -1,0 +1,83 @@
+/* body {
+    font-family: Arial, sans-serif;
+}
+
+.chat-container {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    height: 300px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.message {
+    margin: 5px 0;
+} */
+
+
+.App {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .chat {
+    flex: 1;
+    padding: 20px;
+    background: #fff;
+  }
+  
+  .messages {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .file-preview {
+    max-width: 100px;
+    margin-top: 5px;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    padding: 10px;
+  }
+  
+  input[type="file"] {
+    margin-left: 10px;
+  }
+  
+  button {
+    padding: 10px;
+  }
+.BigContainer img{
+    width: 300px;
+    margin-left: 50%;
+    border-radius: 20px;
+}  
+
+.BigContainer{
+    display: flex;
+    /* background-color: #ccc; */
+    align-items: end;
+    gap: 10px;
+}
