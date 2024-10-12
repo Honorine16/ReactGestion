@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import axios from 'axios'
 
 export default function ListGroup({ setSelectedGroup }) {
 
 
     const [groups, setGroups] = useState();
-    
+
     const [loading, setLoading] = useState(true);
-   
+
     const fetchGroups = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -34,13 +32,13 @@ export default function ListGroup({ setSelectedGroup }) {
     const groupClick = (group) => {
         setSelectedGroup(group)
         // console.log(group);
-        
+
     }
 
 
     return (
         <div style={{ backgroundColor: '#D9D9D9' }}>
-            <form className="max-w-md mx-auto" style={{ margin: '15px'}}>
+            <form className="max-w-md mx-auto" style={{ margin: '15px' }}>
                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -55,15 +53,20 @@ export default function ListGroup({ setSelectedGroup }) {
             <h3 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Groupes</h3>
 
             <div style={{ width: '200px', padding: '10px', alignContent: 'center', backgroundColor: '#D9D9D9' }}>
-                <button className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                <ul>
-                    { groups && groups.map((group) => (
-                        <li key={group.id} onClick={() => groupClick(group)} >
-                            {group.name}
-                        </li>
-                    ))}
-                </ul>
-                </button>
+
+
+                    <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                        <ul>
+                            {groups && groups.map((group) => (
+                                <li key={group.id} onClick={() => groupClick(group)} >
+                                    {group.name}
+                                </li>
+                            ))}
+                        </ul>
+
+                    </button>
+
+
             </div>
         </div>
     );

@@ -35,7 +35,7 @@ export default function CreateGroup() {
             toast.success(response.data.message)
             setIsLoading(false)
             setTimeout(function () {
-                navigate('/dashboard')
+                navigate('/groupList')
             }, 3000)
         } else {
             console.log(response.data);

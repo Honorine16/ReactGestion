@@ -68,7 +68,7 @@ export default function Chat({ group }) {
                 setMessages(response.data.discussion);
 
                 console.log(response.data.discussion);
-                
+
 
             } catch (error) {
                 console.error('Erreur lors de la récupération des messages', error);
@@ -122,7 +122,16 @@ export default function Chat({ group }) {
             </div>
             <div style={{ padding: '10px', height: '600px', overflowY: 'scroll' }}>
                 {messages.map((message, index) => (
-                    <div key={index}><a href={"http://127.0.0.1:8000/storage/" + message.file_path}>{message.original_name}</a></div> // Afficher chaque message
+                    <div key={index} >
+
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                <a href={"http://127.0.0.1:8000/storage/" + message.file_path}>
+                                    {message.original_name}
+                                </a>
+                            </span>
+                        </button>
+                    </div>
                 ))}
                 <div className='BigContainer'>
                     <img src={Images.DefaultImage} alt="" />

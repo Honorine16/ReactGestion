@@ -5,8 +5,9 @@ import { toast } from "react-toastify";
 
 export default function AddMember() {
     const [emails, setEmails] = useState("");
-    const [groups, setGroups] = useState([]);
     const [selectedGroup, setSelectedGroup] = useState([]);
+    const [groups, setGroups] = useState([]);
+    const [groupId, setGroupId] = useState([]);
 
     const [isLoading, setIsLoading] = useState("");
     const [options, setOptions] = useState([]);
@@ -19,14 +20,14 @@ export default function AddMember() {
         e.preventDefault();
 
         const fromData = new FormData();
-        fromData.append("emails", emails);
+        fromData.append("email", emails);
         // fromData.append("description", description);
         setIsLoading(true)
 
         const token = localStorage.getItem("token")
         console.log(token);
 
-        const response = await axios.post('http://127.0.0.1:8000/api/v1.0.0/groups/{groupId}/users', fromData,
+        const response = await axios.post(`http://127.0.0.1:8000/api/v1.0.0/addMember/${selectedGroup}`, fromData,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -45,7 +46,7 @@ export default function AddMember() {
             toast.error("email du membre est important");
             setIsLoading(false);
         }
-    };
+    }
 
     const fetchGroups = async (e) => {
         try {
